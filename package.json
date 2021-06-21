@@ -1,0 +1,69 @@
+{
+  "name": "hello-vue3",
+  "version": "0.0.0",
+  "private": true,
+  "author": "your name",
+  "main": "electron/index.js",
+  "description": "no description",
+  "scripts": {
+    "dev": "concurrently -n=vue,ele -c=green,blue \"npm run dev:vue\" \"npm run dev:ele\"",
+    "dev:vue": "vite",
+    "dev:ele": "electron-forge start",
+    "build:vue": "vite build",
+    "build:ele": "electron-forge make",
+    "build": "npm run build:vue && npm run build:ele",
+    "package": "electron-forge package"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "electron-squirrel-startup": "^1.0.0",
+    "element-plus": "^1.0.2-beta.32",
+    "vue": "^3.0.4",
+    "vue-router": "^4.0.4"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.55",
+    "@electron-forge/maker-deb": "^6.0.0-beta.55",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.55",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.55",
+    "@electron-forge/maker-zip": "^6.0.0-beta.55",
+    "@vitejs/plugin-vue": "^1.1.5",
+    "@vue/compiler-sfc": "^3.0.5",
+    "autoprefixer": "^10.2.5",
+    "concurrently": "^6.0.0",
+    "electron": "^12.0.9",
+    "postcss-pxtorem": "^6.0.0",
+    "sass": "^1.32.8",
+    "vite": "^2.0.5"
+  },
+  "optionalDependencies": {
+    "fsevents": "*"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "hello_vue3"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
+  }
+}

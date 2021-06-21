@@ -1,0 +1,9 @@
+@function px2rem( $px ){
+	@return $px/100 + rem;
+}
+// 字体颜色
+$cl-txt: #fff;
+// 背景色
+$cl-bg: linear-gradient(#045496, #002252);
+// 头部高度
+$header-height: 75px;
